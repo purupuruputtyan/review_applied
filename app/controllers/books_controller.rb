@@ -11,7 +11,7 @@ class BooksController < ApplicationController
       flash[:notice] = "投稿に成功しました。"
     else
       @books = Book.all
-      render books_path
+      render :index
     end
   end
 
@@ -35,6 +35,6 @@ class BooksController < ApplicationController
   private
 
   def book_params
-    params.require(:book).premit(:title, :body , :image)
+    params.require(:book).permit(:title, :body , :image)
   end
 end
