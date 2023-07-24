@@ -6,8 +6,9 @@ class BooksController < ApplicationController
 
   def create
     @book = Book.new(book_params)
+    @book.user_id = current_user.id
     if @book.save
-      redirect_to books_path
+      redirect_to book_path(@book.id)
       flash[:notice] = "投稿に成功しました。"
     else
       @books = Book.all
