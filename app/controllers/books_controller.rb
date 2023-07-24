@@ -11,10 +11,12 @@ class BooksController < ApplicationController
     else
       @books = Book.all
       render books_path
+    end
   end
 
   def show
     @book = Book.find(params[:id])
+    @user = @book.user
   end
 
   def edit
