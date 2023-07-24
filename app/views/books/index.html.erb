@@ -18,11 +18,11 @@
             <tr>
               <td>
                 <%= link_to book_path(book.id) do %>
-                  <%= image_tag get.image(80,80) %>
+                  <%= image_tag book.get_image(80,80) %>
                 <% end %>
               </td>
               <td><%= link_to book.title, book_path(book.id) %></td>
-              <td><%= book.introduction %></td>
+              <td><%= book.body %></td>
             </tr>
           <% end %>
         </tbody>
